@@ -1,4 +1,4 @@
-package com.duoc.seguridad_calidad;
+package com.duoc.seguridad_calidad.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,17 +1,40 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>Página de Inicio</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-<h1 th:text="|Bienvenido a ${name}!|"></h1>
 
-<div sec:authorize="isAuthenticated()">
-    <h1 th:inline="text">Hola <span th:remove="tag" sec:authentication="name"></span>!</h1>
-    <h2>Seguridad implementada con Spring Security</h2>
-</div>
+    <!-- Saludo personalizado -->
+    <h1 th:text="|Bienvenido a ${name}!|"></h1>
+
+    <!-- Banners Comerciales -->
+    <div>
+        <h2>Banners Comerciales</h2>
+        <div th:each="banner : ${banners}">
+            <a th:href="${banner.enlaceUrl}" target="_blank">
+                <img th:src="${banner.imagenUrl}" th:alt="${banner.nombre}" />
+            </a>
+        </div>
+    </div>
+
+    <!-- Recetas Populares y Recientes -->
+    <div>
+        <h2>Recetas Populares y Recientes</h2>
+        <div th:each="receta : ${recetas}">
+            <h3 th:text="${receta.nombre}"></h3>
+            <p th:text="'Tipo de Cocina: ' + ${receta.tipoCocina}"></p>
+            <p th:text="'Dificultad: ' + ${receta.dificultad}"></p>
+            <img th:src="${receta.fotografiaUrl}" th:alt="${receta.nombre}" />
+        </div>
+    </div>
+
+    <!-- Enlace a Login -->
+    <div>
+        <a th:href="@{/login}">Iniciar Sesión</a>
+    </div>
 
 </body>
 </html>

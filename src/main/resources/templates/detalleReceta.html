@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalles de Receta</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+    <div>
+        <h1 th:text="${receta.nombre}"></h1>
+        <p th:text="'Ingredientes: ' + ${receta.ingredientes}"></p>
+        <p th:text="'Instrucciones: ' + ${receta.instrucciones}"></p>
+        <p th:text="'Tiempo de cocción: ' + ${receta.tiempoCoccion} + ' minutos'"></p>
+        <p th:text="'Dificultad: ' + ${receta.dificultad}"></p>
+        <img th:src="${receta.fotografiaUrl}" th:alt="${receta.nombre}" />
+    </div>
+
+</body>
+</html>
