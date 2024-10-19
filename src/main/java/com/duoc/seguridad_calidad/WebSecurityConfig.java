@@ -44,12 +44,17 @@ public class WebSecurityConfig {
             .password(passwordEncoder().encode("password"))
             .roles("USER")
             .build();
+        UserDetails user2 = User.builder() 
+            .username("user2")
+            .password(passwordEncoder().encode("password2"))
+            .roles("USER")
+            .build();
         UserDetails admin = User.builder()
             .username("admin") 
             .password(passwordEncoder().encode("password")) 
             .roles("USER", "ADMIN")
             .build();
-        return new InMemoryUserDetailsManager(user, admin);
+        return new InMemoryUserDetailsManager(user,user2, admin);
     }
 
     @Bean
