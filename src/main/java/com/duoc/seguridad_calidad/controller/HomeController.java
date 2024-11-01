@@ -1,6 +1,7 @@
 package com.duoc.seguridad_calidad.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -26,20 +27,22 @@ public class HomeController {
     );
 
     @GetMapping("/home")
-    public String home(@RequestParam (name = "name", required = false, defaultValue = "Seguridad y calidad en el Desarrollo")
-    String name, Model model) {
+    public String home(Model model) {
         final var restTemplate = new RestTemplate();
 
-        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
-                .queryParam("name", name);
-        ResponseEntity response = restTemplate.exchange(builder.toUriString(), HttpMethod.GET, null, String.class);
+        // Realiza la solicitud GET al backend para obtener el mapa de respuesta
+        ResponseEntity<Map> response = restTemplate.exchange(url, HttpMethod.GET, null, Map.class);
 
-        System.out.println("Response: " + response);
+        // Extrae los datos del mapa
+        Map<String, Object> responseBody = response.getBody();
 
-        model.addAttribute("name", response.getBody());
+        if (responseBody != null) {
+            model.addAttribute("recetasRecientes", responseBody.get("recetasRecientes"));
+            model.addAttribute("recetasPopulares", responseBody.get("recetasPopulares"));
+            model.addAttribute("banners", responseBody.get("banners"));
+        }
 
-
-        return "home";
+        return "home"; 
     }
 
 //    @GetMapping("/")
