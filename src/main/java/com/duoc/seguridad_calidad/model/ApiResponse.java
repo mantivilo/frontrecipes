@@ -1,17 +1,21 @@
 package com.duoc.seguridad_calidad.model;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 @Data
+@Component
 public class ApiResponse {
 
     private String message;
-    private boolean success;
 
 
-    public ApiResponse(String message, boolean success) {
-        this.message = message;
-        this.success = success;
+
+    public String getMessage() {
+        return message;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }
