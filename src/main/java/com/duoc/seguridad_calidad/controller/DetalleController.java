@@ -30,7 +30,7 @@ public class DetalleController {
         final var restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
 
-        headers.set("Authorization", "Bearer " + this.tokenStore.getToken());
+        headers.set("Authorization",  this.tokenStore.getToken());
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
         // Construir la URL para la receta específica
         String detalleUrl = url + "/private/recetas/" + id + "/detalle";
