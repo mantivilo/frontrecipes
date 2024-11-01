@@ -16,14 +16,14 @@
 <!-- Mostrar los detalles de la receta solo si el usuario está autenticado -->
 <div sec:authorize="isAuthenticated()">
     <div th:if="${detalles}">
-<!--        <p><strong>Dificultad:</strong> <span th:text="${detalles['dificultad']}">Dificultad de la receta</span></p>-->
-<!--        <p><strong>Ingredientes:</strong></p>-->
-<!--        <p th:text="${detalles['ingredientes']}">Lista de ingredientes</p>-->
-<!--        <p><strong>Instrucciones:</strong></p>-->
-<!--        <p th:text="${detalles['instrucciones']}">Instrucciones de la receta</p>-->
-<!--        <p><strong>Tiempo de Cocción:</strong> <span th:text="${detalles['tiempoCoccion']}">0</span> minutos</p>-->
-<!--        <p><strong>Fotografía:</strong></p>-->
-<!--        <img th:src="${detalles['fotografiaUrl']}" alt="Fotografía de la receta">-->
+        <p><strong>Dificultad:</strong> <span th:text="${detalles['dificultad']}">Dificultad de la receta</span></p>
+        <p><strong>Ingredientes:</strong></p>
+        <p th:text="${detalles['ingredientes']}">Lista de ingredientes</p>
+        <p><strong>Instrucciones:</strong></p>
+        <p th:text="${detalles['instrucciones']}">Instrucciones de la receta</p>
+        <p><strong>Tiempo de Cocción:</strong> <span th:text="${detalles['tiempoCoccion']}">0</span> minutos</p>
+        <p><strong>Fotografía:</strong></p>
+        <img th:src="${detalles['fotografiaUrl']}" alt="Fotografía de la receta">
     </div>
 </div>
 </body>
