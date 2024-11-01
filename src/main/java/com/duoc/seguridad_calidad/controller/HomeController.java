@@ -18,20 +18,15 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Controller
 public class HomeController {
 
-    String url = "http://localhost:8080/public/home";
+    String url = "http://localhost:8080";
 
-
-    private List<Banner> banners = List.of(
-        new Banner("Compañía A", "/images/banner1.jpg", "https://companiaA.com"),
-        new Banner("Compañía B", "/images/banner2.jpg", "https://companiaB.com")
-    );
 
     @GetMapping("/home")
     public String home(Model model) {
         final var restTemplate = new RestTemplate();
 
         // Realiza la solicitud GET al backend para obtener el mapa de respuesta
-        ResponseEntity<Map> response = restTemplate.exchange(url, HttpMethod.GET, null, Map.class);
+        ResponseEntity<Map> response = restTemplate.exchange(url.concat("/public/home"), HttpMethod.GET, null, Map.class);
 
         // Extrae los datos del mapa
         Map<String, Object> responseBody = response.getBody();
@@ -42,17 +37,32 @@ public class HomeController {
             model.addAttribute("banners", responseBody.get("banners"));
         }
 
-        return "home"; 
+        return "home";
     }
 
-//    @GetMapping("/")
-//    public String root(@RequestParam (name = "name", required = false, defaultValue = "Seguridad y calidad en el Desarrollo")
-//    String name, Model model) {
-//        model.addAttribute("name", name);
-//        model.addAttribute("recetas", recetas);
-//        model.addAttribute("banners", banners);
-//        return "home";
-//    }
+    @GetMapping("/buscar")
+    public String buscarRecetas(
+            @RequestParam(value = "nombre", required = false) String nombre,
+            @RequestParam(value = "tipoCocina", required = false) String tipoCocina,
+            @RequestParam(value = "paisOrigen", required = false) String paisOrigen,
+            @RequestParam(value = "dificultad", required = false) String dificultad,
+            Model model) {
+
+        // Construye la URL de búsqueda con los parámetros
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url + "/public/buscar")
+                .queryParam("nombre", nombre)
+                .queryParam("tipoCocina", tipoCocina)
+                .queryParam("paisOrigen", paisOrigen)
+                .queryParam("dificultad", dificultad);
+
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<List> response = restTemplate.getForEntity(builder.toUriString(), List.class);
+
+        // Agrega los resultados al modelo para mostrar en la vista
+        model.addAttribute("resultados", response.getBody());
+
+        return "buscarRecetas";
+    }
     
     
     

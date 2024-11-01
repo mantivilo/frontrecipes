@@ -1,6 +1,6 @@
 package com.duoc.seguridad_calidad.provider;
 
-import com.duoc.seguridad_calidad.model.ApiResponse;
+import com.duoc.seguridad_calidad.model.TokenStore;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -16,12 +16,16 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+
+
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
-    private ApiResponse tokenStore;
+    private TokenStore tokenStore;
 
-    public CustomAuthenticationProvider(ApiResponse tokenStore) {
+    public CustomAuthenticationProvider(TokenStore tokenStore) {
         super();
         this.tokenStore = tokenStore;
     }
@@ -50,9 +54,9 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         System.out.println("Response Entity: " + responseEntity);
 
-        tokenStore.setMessage(responseEntity.getBody());
+        tokenStore.setToken(responseEntity.getBody());
 
-        System.out.println("Token Store: " + tokenStore.getMessage());
+        System.out.println("Token Store: " + tokenStore.getToken());
 
         if (responseEntity.getStatusCode() != HttpStatus.OK) {
             throw new BadCredentialsException("Invalid username or password");

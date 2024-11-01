@@ -31,7 +31,7 @@
                         <p><strong>País de origen:</strong> <span th:text="${receta.paisOrigen}">País de origen</span></p>
                         <p><strong>Tipo de cocina:</strong> <span th:text="${receta.tipoCocina}">Tipo de cocina</span></p>
                         <p><strong>Dificultad:</strong> <span th:text="${receta.dificultad}">Dificultad</span></p>
-                        <a th:href="@{'/receta/detalle/' + ${receta.id}}" class="btn btn-primary mt-2">Ver Detalle</a>
+                        <a th:href="@{'/recetas/'+${receta.id}+'/detalle' }" class="btn btn-primary mt-2">Ver Detalle</a>
                     </li>
                 </ul>
             </div>
@@ -49,7 +49,7 @@
                         <p><strong>País de origen:</strong> <span th:text="${receta.paisOrigen}">País de origen</span></p>
                         <p><strong>Tipo de cocina:</strong> <span th:text="${receta.tipoCocina}">Tipo de cocina</span></p>
                         <p><strong>Dificultad:</strong> <span th:text="${receta.dificultad}">Dificultad</span></p>
-                        <a th:href="@{'/receta/detalle/' + ${receta.id}}" class="btn btn-primary mt-2">Ver Detalle</a>
+                        <a th:href="@{'/recetas/'+ ${receta.id} +'/detalle' }" methods="get" class="btn btn-primary mt-2">Ver Detalle</a>
                     </li>
                 </ul>
             </div>
