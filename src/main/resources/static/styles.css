@@ -22,26 +22,26 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Header background for Recetas Recientes and Recetas Populares */
+/* Header background for Recetas Populares */
 .card-header {
     background-color: #28a745 !important; /* Match Ver Detalle buttons */
-    color: white !important; /* White text */
+    color: white !important; 
     text-align: center;
     font-weight: bold;
 }
 
 /* Button styling for "Ver Detalle" */
 .btn-primary {
-    background-color: #28a745 !important; /* Green button */
-    border-color: #28a745 !important; /* Green border */
+    background-color: #28a745 !important; 
+    border-color: #28a745 !important; 
 }
 
 .btn-primary:hover {
-    background-color: #218838 !important; /* Slightly darker green on hover */
-    border-color: #1e7e34 !important; /* Slightly darker green border */
+    background-color: #218838 !important; 
+    border-color: #1e7e34 !important; 
 }
 
-/* Typography for main headers */
+/* main headers */
 h1,h2 {
     font-weight: bold;
     color: #2c3e50;

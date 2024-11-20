@@ -1,6 +1,5 @@
-package com.duoc.seguridad_calidad.provider;
+package com.duoc.recetasfrontend.provider;
 
-import com.duoc.seguridad_calidad.model.TokenStore;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -12,6 +11,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+
+import com.duoc.recetasfrontend.model.TokenStore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(final Authentication authentication) throws AuthenticationException {
-        System.out.println("Llegué Custom Authentication Provider: ");
+        System.out.println("Custom Authentication Provider Sent: ");
         System.out.println("Authentication: " + authentication);
         final String name = authentication.getName();
         System.out.println("Name: " + name);

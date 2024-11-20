@@ -37,7 +37,6 @@
                         <h5 class="fw-bold mb-1" th:text="${receta.nombre}">Nombre de la receta</h5>
                         <p><strong>País de origen:</strong> <span th:text="${receta.paisOrigen}">País de origen</span></p>
                         <p><strong>Tipo de cocina:</strong> <span th:text="${receta.tipoCocina}">Tipo de cocina</span></p>
-                        <!-- Flex container to align "Dificultad" and the button -->
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="mb-0"><strong>Dificultad:</strong> <span th:text="${receta.dificultad}">Dificultad</span></p>
                             <a th:href="@{'/recetas/'+${receta.id}+'/detalle'}" class="btn btn-primary">Ver Detalle</a>

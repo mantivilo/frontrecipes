@@ -1,8 +1,5 @@
-package com.duoc.seguridad_calidad.model;
-
-
+package com.duoc.recetasfrontend.model;
 import org.springframework.stereotype.Component;
-
 
 @Component
 public class TokenStore {

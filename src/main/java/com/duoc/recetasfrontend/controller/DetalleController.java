@@ -1,8 +1,6 @@
-package com.duoc.seguridad_calidad.controller;
+package com.duoc.recetasfrontend.controller;
 
 
-import com.duoc.seguridad_calidad.model.Receta;
-import com.duoc.seguridad_calidad.model.TokenStore;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -12,6 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.client.RestTemplate;
+
+import com.duoc.recetasfrontend.model.Receta;
+import com.duoc.recetasfrontend.model.TokenStore;
 
 @Controller
 public class DetalleController {
@@ -31,27 +32,27 @@ public class DetalleController {
         final var restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
 
-        headers.set("Authorization", "Bearer " + this.tokenStore.getToken());  // Agregar prefijo "Bearer "
+        headers.set("Authorization", "Bearer " + this.tokenStore.getToken());  //Adding "Bearer "
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
 
-        // Construir la URL para la receta específica
+        // Build the URL for the detail recipe ID.
         String detalleUrl = url + "/private/recetas/" + id + "/detalle";
 
         try {
-            // Hacer la solicitud GET al backend y parsear la respuesta como un objeto de tipo Receta
+            //GET call to backend and parse the response as an object (tipo receta)
             ResponseEntity<Receta> response = restTemplate.exchange(detalleUrl, HttpMethod.GET, entity, Receta.class);
 
             if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
-                // Pasar los detalles de la receta a la vista
+                // pass the detail recipe to the view
                 model.addAttribute("detalles", response.getBody());
             } else {
-                model.addAttribute("error", "No se pudieron obtener los detalles de la receta.");
+                model.addAttribute("error", "No se pudo obtener los detalles de la recera.");
             }
         } catch (Exception e) {
-            model.addAttribute("error", "Ocurrió un error al obtener los detalles de la receta: " + e.getMessage());
+            model.addAttribute("error", "Error al obtener los detalles de la receta: " + e.getMessage());
         }
 
-        return "detalleReceta";
+        return "detailrecipe";
     }
 
 

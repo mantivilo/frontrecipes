@@ -1,7 +1,5 @@
-package com.duoc.seguridad_calidad.model;
-
+package com.duoc.recetasfrontend.model;
 import lombok.Data;
-
 import java.util.List;
 
 @Data

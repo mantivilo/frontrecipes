@@ -1,4 +1,4 @@
-package com.duoc.seguridad_calidad;
+package com.duoc.recetasfrontend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

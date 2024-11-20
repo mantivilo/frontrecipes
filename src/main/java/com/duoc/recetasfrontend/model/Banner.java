@@ -1,4 +1,4 @@
-package com.duoc.seguridad_calidad.model;
+package com.duoc.recetasfrontend.model;
 
 public class Banner {
     
