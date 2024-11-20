@@ -1,21 +1,50 @@
+/* General Body Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    color: #333;
+    background: url('/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
 }
 
-h1, h2, h3, p {
+/* Header text styling */
+.display-4 {
+    font-weight: 700;
+}
+
+.lead {
+    font-weight: 300;
+}
+
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header background for Recetas Recientes and Recetas Populares */
+.card-header {
+    background-color: #28a745 !important; /* Match Ver Detalle buttons */
+    color: white !important; /* White text */
     text-align: center;
-    color: #333;
+    font-weight: bold;
 }
 
+/* Button styling for "Ver Detalle" */
+.btn-primary {
+    background-color: #28a745 !important; /* Green button */
+    border-color: #28a745 !important; /* Green border */
+}
 
-h1 {
-    margin-top: 20px;
-    font-size: 36px;
-    color: #4CAF50;
+.btn-primary:hover {
+    background-color: #218838 !important; /* Slightly darker green on hover */
+    border-color: #1e7e34 !important; /* Slightly darker green border */
+}
+
+/* Typography for main headers */
+h1,h2 {
+    font-weight: bold;
+    color: #2c3e50;
 }
 
 /* Container to center and limit width */
@@ -26,52 +55,9 @@ h1 {
     padding: 20px;
 }
 
-/* Search Form */
-.search-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 40px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.search-input,
-.search-select {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 200px;
-}
-
-.search-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.search-button:hover {
-    background-color: #45a049;
-}
-
-
-/* Banners Styles */
+/* Banners Section Styles */
 .banners-section {
     margin-bottom: 50px;
-}
-
-.banners {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
 }
 
 .banners img {
@@ -85,62 +71,40 @@ h1 {
     transform: scale(1.05);
 }
 
-/* Recetas Styles */
-.recetas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+div.card-header {
+    background-color: #28a745 !important;
+    color: white !important;
 }
 
-.receta {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
+/* Add a border line after recipe titles */
+.list-group-item h5 {
+    border-bottom: 1px solid #ccc; /* Light gray border */
+    padding-bottom: 5px; /* Add some space below the text */
+    margin-bottom: 10px; /* Add space between the line and content */
+    text-align: center; /* Centers the title horizontally */
+    font-weight: bold; /* Keeps the font bold */
 }
 
-.receta img {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    object-fit: contain;
+.list-group-item .d-flex {
+    margin-top: 10px;
 }
 
-.receta h3 {
-    margin: 10px 0;
-    font-size: 22px;
-    color: #333;
+p.lead {
+    font-weight: 600 !important; /* Makes the text slightly thicker */
 }
 
-.receta p {
-    margin: 5px 0;
-    color: #666;
+.card-img-top {
+    border-radius: 8px; /* Round the corners of the images */
+    max-height: 250px; /* Limit the image height */
+    object-fit: cover; /* Ensure images are cropped properly */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
 
-.login-link {
-    text-align: center;
-    margin-top: 30px;
+.card-body {
+    background-color: #f8f9fa; /* Light background for the card text */
+    padding: 10px;
 }
 
-.login-link a {
-    text-decoration: none;
-    font-size: 18px;
-    color: #4CAF50;
-    padding: 10px 20px;
-    border: 2px solid #4CAF50;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.login-link a:hover {
-    background-color: #4CAF50;
-    color: white;
+.alert {
+    margin-bottom: 15px;
 }

@@ -45,6 +45,7 @@ public class WebSecurityConfig {
         )
         .formLogin((form) -> form
             .loginPage("/login")
+            .defaultSuccessUrl("/home", true) // Redirect to /home after successful login
             .permitAll()
         )
         .logout((logout) -> logout.permitAll());
